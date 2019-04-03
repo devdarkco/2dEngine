@@ -13,21 +13,29 @@ import java.util.UUID;
 public class GameObject {
     private UUID id;
     private static HashMap<Class, HashMap<UUID, ? extends Component>> components = new HashMap<>();
+    private String tag;
 
     public GameObject() {
         this.id = UUID.randomUUID();
+        setTag("Default");
     }
 
     public void render(SpriteBatch batch){
-        if(hasComponent(SpriteRenderer.class) && hasComponent(Transform.class)){
-            getComponent(SpriteRenderer.class).render(batch, getComponent(Transform.class).x, getComponent(Transform.class).y);
+        if(hasComponent(SpriteRenderer.class)){
+            getComponent(SpriteRenderer.class).render = true;
         }
     }
 
     public void update(float delta){
-        if(hasComponent(SpriteRenderer.class) && hasComponent(Transform.class)){
-            getComponent(SpriteRenderer.class).getSpritePos().set(getComponent(Transform.class).x, getComponent(Transform.class).y);
-        }
+
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+    public String getTag() {
+        return tag;
     }
 
     @SuppressWarnings("unchecked")
