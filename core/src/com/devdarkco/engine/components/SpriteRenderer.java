@@ -6,17 +6,12 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class SpriteRenderer extends Component {
 
-    private String texturePath;
-    private Texture texture;
-    private Sprite sprite;
-    public boolean render = false;
+    public Sprite sprite;
 
+    /** Component that contains a sprite with the given texture;
+     * @param texturePath - path to texture
+     */
     public SpriteRenderer(String texturePath){
-        texture = new Texture(texturePath);
-        sprite = new Sprite(texture);
-    }
-
-    public Sprite getSprite() {
-        return sprite;
+        sprite = new Sprite(new Texture(texturePath));
     }
 }
